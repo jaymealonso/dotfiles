@@ -1,2 +1,4 @@
-# dotfiles
-my dotfiles
+# Dotfiles 
+
+Dotfiles saved using GNU ```stow```.
+
