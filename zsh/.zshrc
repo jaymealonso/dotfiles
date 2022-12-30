@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:/home/jayme/.nvm/versions/node/v16.14.2/bin:~/.cargo/bin:~/.local/bin:$HOME/bin/2600tools
+export PATH=$PATH:/home/jayme/.nvm/versions/node/v16.14.2/bin:~/.cargo/bin:~/.local/bin:$HOME/bin/2600tools:~/.local/scripts/
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -117,8 +117,6 @@ else
   echo "Dropbox Status:"
   dropbox status
 fi
- 
-
 
 SSH_ENV="$HOME/.ssh/agent-environment"
 
@@ -149,3 +147,10 @@ fi
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/jayme/documents/other-devs/financas/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jayme/documents/other-devs/financas/node_modules/tabtab/.completions/electron-forge.zsh
+
+tmx() {
+  tmux-sessionizer
+}
+zle -N tmx
+
+bindkey "^f" tmx
