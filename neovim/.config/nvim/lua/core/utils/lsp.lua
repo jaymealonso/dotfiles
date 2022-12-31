@@ -179,7 +179,7 @@ astronvim.lsp.on_attach = function(client, bufnr)
   local on_attach_override = user_plugin_opts("lsp.on_attach", nil, false)
   local aerial_avail, aerial = pcall(require, "aerial")
   conditional_func(on_attach_override, true, client, bufnr)
-  conditional_func(aerial.on_attach, aerial_avail, client, bufnr)
+  -- conditional_func(aerial.on_attach, aerial_avail, client, bufnr)
 end
 
 --- The default AstroNvim LSP capabilities
