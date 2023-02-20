@@ -84,7 +84,7 @@ if is_available "alpha-nvim" then
             end
           end
         end
-        if not should_skip then alpha.start(true) end
+        -- if not should_skip then alpha.start(true) end
       end
     end,
   })
