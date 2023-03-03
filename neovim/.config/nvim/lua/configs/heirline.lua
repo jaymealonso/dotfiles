@@ -106,7 +106,11 @@ local heirline_opts = astronvim.user_plugin_opts("plugins.heirline", {
     },
   },
 })
-heirline.setup(heirline_opts[1], heirline_opts[2])
+-- heirline.setup(heirline_opts[1], heirline_opts[2])
+heirline.setup {
+  statusline = heirline_opts[1],
+  winbar = heirline_opts[2],
+}
 
 vim.api.nvim_create_augroup("Heirline", { clear = true })
 vim.api.nvim_create_autocmd("ColorScheme", {
