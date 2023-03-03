@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/home/jayme/.nvm/versions/node/v16.14.2/bin:~/.cargo/bin:~/.local/bin:$HOME/bin/2600tools:~/.local/scripts/
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -73,7 +74,20 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git nvm zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
+USE_POWERLINE="true"
+# Source manjaro-zsh-configuration
+if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
+  source /usr/share/zsh/manjaro-zsh-config
+fi
+# Use manjaro zsh prompt
+if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
+  source /usr/share/zsh/manjaro-zsh-prompt
+fi
+unsetopt correct
+unsetopt correct_all
+if [[ -e $ZSH/oh-my-zsh.sh ]]; then
+  source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
@@ -101,21 +115,20 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias l='ls -al'
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# dropbox start
-# echo ""
-# neofetch | lolcat
-
-# IF DROPBOX is not running, run it
-dropbox status | grep "Dropbox isn't running\!"
-if test $? -eq 0
+# DROPBOX is installed?
+if command -v dropbox &> /dev/null
 then
-  dropbox start
-else 
-  echo "Dropbox Status:"
-  dropbox status
+# IF DROPBOX is not running, run it
+  dropbox status | grep "Dropbox isn't running\!"
+  if test $? -eq 0
+  then
+    dropbox start
+  else 
+    echo "Dropbox Status:"
+    dropbox status
+  fi
 fi
 
 SSH_ENV="$HOME/.ssh/agent-environment"
