@@ -22,6 +22,10 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     exit 0
 fi
 
+echo 
+echo selected name: $selected_name
+echo selected: $selected
+
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     echo "found1"
     tmux new-session -ds $selected_name -c $selected

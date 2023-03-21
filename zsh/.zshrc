@@ -130,6 +130,7 @@ function start_agent {
     # /usr/bin/ssh-add ~/.ssh/id_rsa_personal;
     /usr/bin/ssh-add -D;
     /usr/bin/ssh-add ~/.ssh/id_moncler;
+    /usr/bin/ssh-add ~/.ssh/id_personal;
 }
 
 # Source SSH settings, if applicable
