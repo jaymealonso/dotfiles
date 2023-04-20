@@ -1,3 +1,4 @@
+echo "Start script => $(date +"%D %T %N")" 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/home/jayme/.nvm/versions/node/v16.14.2/bin:~/.cargo/bin:~/.local/bin:$HOME/bin/2600tools:~/.local/scripts/
@@ -109,14 +110,14 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # neofetch | lolcat
 
 # IF DROPBOX is not running, run it
-dropbox status | grep "Dropbox isn't running\!"
-if test $? -eq 0
-then
-  dropbox start
-else 
-  echo "Dropbox Status:"
-  dropbox status
-fi
+# dropbox status | grep "Dropbox isn't running\!"
+# if test $? -eq 0
+# then
+#   dropbox start
+# else 
+#   echo "Dropbox Status:"
+#   dropbox status
+# fi
 
 SSH_ENV="$HOME/.ssh/agent-environment"
 
@@ -135,19 +136,19 @@ function start_agent {
 
 # Source SSH settings, if applicable
 
-# if [ -f "${SSH_ENV}" ]; then
-#     . "${SSH_ENV}" > /dev/null
-#     #ps ${SSH_AGENT_PID} doesn't work under cywgin
-#     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-#         start_agent;
-#     }
-# else
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
     start_agent;
-# fi
+fi
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /home/jayme/documents/other-devs/financas/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jayme/documents/other-devs/financas/node_modules/tabtab/.completions/electron-forge.zsh
+# [[ -f /home/jayme/documents/other-devs/financas/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jayme/documents/other-devs/financas/node_modules/tabtab/.completions/electron-forge.zsh
 
 tmx() {
   tmux-sessionizer
@@ -160,3 +161,5 @@ tmux set mouse
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+echo "End script => $(date +"%D %T %N")" 
