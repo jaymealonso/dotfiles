@@ -125,12 +125,12 @@ function start_agent {
     echo "Initialising new SSH agent..."
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
     echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
+    # chmod 600 "${SSH_ENV}"
+    # . "${SSH_ENV}" > /dev/null
     # /usr/bin/ssh-add;
     # /usr/bin/ssh-add ~/.ssh/id_rsa_personal;
     /usr/bin/ssh-add -D;
-    /usr/bin/ssh-add ~/.ssh/id_moncler;
+    # /usr/bin/ssh-add ~/.ssh/id_moncler;
     /usr/bin/ssh-add ~/.ssh/id_personal;
 }
 
@@ -156,7 +156,11 @@ tmx() {
 zle -N tmx
 bindkey "^f" tmx
 
-tmux set mouse
+tmux has-session
+if [ $? -eq 0 ]; then
+    echo ">>> tmux set mouse"
+    tmux set mouse
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
