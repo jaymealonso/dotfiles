@@ -44,6 +44,12 @@ Gerenciador de sessões de terminal.
 sudo apt install tmux
 ```
 
+### FZF
+Ferramenta para pesquisar arquivos e comandos no terminal.
+```terminal
+sudo apt install fzf
+```
+
 ### LSD (LSDeluxe)
 Ferramenta para listar arquivos e diretórios no terminal usando cores e ícones.
 

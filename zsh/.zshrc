@@ -145,26 +145,29 @@ else
     start_agent;
 fi
 
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-# [[ -f /home/jayme/documents/other-devs/financas/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jayme/documents/other-devs/financas/node_modules/tabtab/.completions/electron-forge.zsh
+### Tmux sessionalizer
 
-tmx() {
-  tmux-sessionizer
-}
-zle -N tmx
-bindkey "^f" tmx
+# tmx() {
+#   tmux-sessionizer
+# }
+# zle -N tmx
+# bindkey "^f" tmx
+bindkey -s ^f "tmux-sessionizer\n"
 
-tmux has-session
-if [ $? -eq 0 ]; then
-    echo ">>> tmux set mouse"
-    tmux set mouse
-fi
+# tmux has-session
+# if [ $? -eq 0 ]; then
+#     echo ">>> tmux set mouse"
+#     tmux set mouse
+# fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-echo "End script => $(date +"%D %T %N")" 
+
+## carrega o zsh-syntax-highlighting
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+echo "End script => $(date +"%D %T %N")" 
