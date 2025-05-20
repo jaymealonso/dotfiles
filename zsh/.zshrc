@@ -128,22 +128,25 @@ function start_agent {
     # . "${SSH_ENV}" > /dev/null
     # /usr/bin/ssh-add;
     # /usr/bin/ssh-add ~/.ssh/id_rsa_personal;
-    /usr/bin/ssh-add -D;
     # /usr/bin/ssh-add ~/.ssh/id_moncler;
-    /usr/bin/ssh-add ~/.ssh/id_personal;
 }
 
 # Source SSH settings, if applicable
 
 if [ -f "${SSH_ENV}" ]; then
+    echo "found"
     . "${SSH_ENV}" > /dev/null
     #ps ${SSH_AGENT_PID} doesn't work under cywgin
     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
         start_agent;
     }
 else
+    echo "start agent"
     start_agent;
 fi
+
+/usr/bin/ssh-add -D;
+/usr/bin/ssh-add ~/.ssh/id_personal;
 
 ### Tmux sessionalizer
 
