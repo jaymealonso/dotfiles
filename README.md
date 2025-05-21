@@ -43,3 +43,12 @@ diretórios nesse repositório:
 | cht.sh | Permite fazer uma pesquisa rapida sobre alguns comandos e formatos mais usados diretamente no terminal | https://cht.sh/ |
 | tmux-sessionizer | Script para criar uma sessão do tmux com o nome da pasta atual. É uma copia do arquivo criado pelo The Primagen | [github do The Primagen](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer) |
 
+## Eclipse windows vrapper
+
+| Nome | Descrição | link |
+| --- | --- | --- |
+| .vrapperrc | Script de configuracao do vrapper no windows | https://vrapper.sourceforge.net/home/ |
+
+
+
+

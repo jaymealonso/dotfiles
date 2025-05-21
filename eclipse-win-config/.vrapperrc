@@ -1,0 +1,25 @@
+set ignorecase                   " Enable insensitive search
+set hlsearch					 " Highlight search results
+set incsearch 					 " Incremental search
+set clipboard=autoselectplus
+
+" Map activation of ABAP object to :a command
+eclipseuiaction a com.sap.adt.activation.ui.command.singleActivation
+" Map activation of all inactive ABAP object to :a command
+eclipseuiaction aa com.sap.adt.activation.ui.command.multiActivation
+
+" Open search
+eclipseuiaction o com.sap.adt.ris.search.ui.callSimpleSearch
+" Execute object
+eclipseuiaction e com.sap.adt.sapgui.ui.launchExecutableObject
+" Format ALL Block
+" com.sap.adt.tools.abapsource.ui.prettyPrint
+" Format Selected Block
+eclipseuiaction = com.sap.adt.tools.abapsource.ui.prettyPrintBlock
+
+
+" map % to navigate to definition or matching block (same as F3)
+noremap % <Plug>(eclipse-motion:com.sap.adt.tools.abapsource.ui.navigateTo)
+" noremap \gd <Plug>(com.sap.adt.tools.abapsource.ui.OutlineNavigateToDeclarationShortCut)
+
+map <ESC> :noh<ENTER>
